@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Cotton Collej Restaurant · Jorhat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════
+   TOKENS
+══════════════════════════════ */
+:root {
+  --cream:       #fdf8f3;
+  --cream2:      #f7f0e6;
+  --cream3:      #ede4d8;
+  --ink:         #1a1208;
+  --ink3:        #7a6652;
+  --ink4:        #b0a090;
+  --spice:       #c0390b;
+  --spice2:      #e04d1a;
+  --spice-tint:  rgba(192,57,11,0.09);
+  --green:       #2d7a4f;
+  --green-tint:  rgba(45,122,79,0.09);
+  --border:      rgba(26,18,8,0.08);
+  --border2:     rgba(26,18,8,0.13);
+  --shadow-page: 0 0 60px rgba(26,18,8,0.10);
+  --ease:        cubic-bezier(.4,0,.2,1);
+  --page-w:      960px;
+  --topbar-h:    58px;
+}
+
+/* ══════════════════════════════
+   RESET
+══════════════════════════════ */
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html { font-size:16px; scroll-behavior:smooth; }
+body {
+  font-family:'DM Sans',system-ui,sans-serif;
+  background:var(--cream3);
+  color:var(--ink);
+  min-height:100vh;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ══════════════════════════════
+   PAGE SHELL
+══════════════════════════════ */
+.page-outer {
+  width:100%;
+  max-width:var(--page-w);
+  margin:0 auto;
+  background:var(--cream);
+  min-height:100vh;
+  position:relative;
+}
+@media(min-width:600px) {
+  .page-outer { box-shadow:var(--shadow-page); }
+}
+
+/* ══════════════════════════════
+   TOPBAR
+══════════════════════════════ */
+.topbar {
+  position:sticky; top:0; z-index:300;
+  height:var(--topbar-h);
+  background:rgba(253,248,243,0.97);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border2);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 1.25rem;
+}
+.topbar-left { display:flex; align-items:center; gap:.7rem; }
+.logo-mark {
+  width:38px; height:38px; border-radius:11px;
+  background:var(--ink);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.15rem; flex-shrink:0;
+}
+.logo-name {
+  font-family:'Fraunces',serif;
+  font-size:1.05rem; font-weight:600;
+  color:var(--ink); letter-spacing:-.02em; line-height:1.15;
+}
+.logo-loc {
+  font-size:.58rem; font-weight:400;
+  color:var(--ink3); letter-spacing:.05em; text-transform:uppercase;
+}
+.open-badge {
+  font-size:.6rem; font-weight:600;
+  letter-spacing:.06em; text-transform:uppercase;
+  color:var(--green);
+  background:rgba(45,122,79,0.1);
+  border:1px solid rgba(45,122,79,0.22);
+  border-radius:50px; padding:.3rem .85rem;
+  white-space:nowrap;
+}
+
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+.hero {
+  background:var(--ink);
+  padding:2.5rem 1.25rem 2.2rem;
+  position:relative; overflow:hidden;
+}
+.hero::before {
+  content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 80% 55% at 50% -5%, rgba(192,57,11,0.26), transparent),
+    radial-gradient(ellipse 50% 70% at 95% 95%, rgba(192,57,11,0.10), transparent);
+  pointer-events:none;
+}
+.hero-inner { position:relative; }
+.hero-eyebrow {
+  font-size:.6rem; font-weight:500;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:var(--spice2); margin-bottom:.75rem;
+}
+.hero-title {
+  font-family:'Fraunces',serif;
+  font-size:clamp(2rem, 5vw, 3.2rem);
+  font-weight:700; color:#fdf8f3;
+  line-height:1.0; letter-spacing:-.04em; margin-bottom:.6rem;
+}
+.hero-title em { font-style:italic; font-weight:300; color:rgba(253,248,243,0.48); }
+.hero-desc {
+  font-size:clamp(.78rem,.9vw,.9rem); font-weight:300;
+  color:rgba(253,248,243,0.46);
+  line-height:1.7; margin-bottom:1.4rem; max-width:480px;
+}
+.hero-chips {
+  display:flex; flex-wrap:wrap; gap:.32rem; margin-bottom:1.6rem;
+}
+.hero-chip {
+  font-size:.63rem; font-weight:500;
+  color:rgba(253,248,243,0.65);
+  background:rgba(253,248,243,0.07);
+  border:1px solid rgba(253,248,243,0.11);
+  border-radius:50px; padding:.26rem .72rem; white-space:nowrap;
+}
+.hero-stats {
+  display:flex;
+  border-top:1px solid rgba(253,248,243,0.09);
+  padding-top:1.2rem;
+}
+.hstat { flex:1; display:flex; flex-direction:column; gap:.2rem; padding-right:1.2rem; }
+.hstat + .hstat { padding-left:1.2rem; border-left:1px solid rgba(253,248,243,0.09); }
+.hstat:last-child { padding-right:0; }
+.hstat-val {
+  font-family:'Fraunces',serif;
+  font-size:clamp(1rem,1.2vw,1.2rem); font-weight:600;
+  color:#fdf8f3; letter-spacing:-.02em;
+}
+.hstat-label {
+  font-size:.56rem; font-weight:400;
+  color:rgba(253,248,243,0.35);
+  letter-spacing:.1em; text-transform:uppercase;
+}
+.star-gold { color:#f5a623; }
+
+/* ══════════════════════════════
+   NAV WRAP (filter + category)
+══════════════════════════════ */
+.nav-wrap {
+  position:sticky; top:var(--topbar-h); z-index:200;
+  background:rgba(253,248,243,0.97);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border2);
+}
+
+/* — filter row — */
+.filter-row {
+  display:flex; align-items:center; gap:.4rem;
+  padding:.5rem 1.25rem .45rem;
+  border-bottom:1px solid var(--border);
+  overflow-x:auto; scrollbar-width:none;
+}
+.filter-row::-webkit-scrollbar { display:none; }
+.filter-label {
+  font-size:.57rem; font-weight:700;
+  letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink4); flex-shrink:0;
+}
+.filter-btn {
+  display:flex; align-items:center; gap:.32rem;
+  font-size:.68rem; font-weight:500;
+  color:var(--ink3); background:transparent;
+  border:1.5px solid var(--border2);
+  border-radius:50px; padding:.28rem .78rem;
+  cursor:pointer; white-space:nowrap; flex-shrink:0;
+  transition:all .18s var(--ease);
+}
+.filter-btn .fb-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+.filter-btn.veg-btn .fb-dot { background:var(--green); }
+.filter-btn.nv-btn  .fb-dot { background:var(--spice); }
+.filter-btn.veg-btn.active {
+  color:var(--green); background:var(--green-tint);
+  border-color:var(--green); font-weight:600;
+}
+.filter-btn.nv-btn.active {
+  color:var(--spice); background:var(--spice-tint);
+  border-color:var(--spice); font-weight:600;
+}
+.filter-btn.clear-btn {
+  color:var(--ink4); border-color:transparent;
+  font-size:.62rem; padding:.28rem .5rem; display:none;
+}
+.filter-btn.clear-btn.visible { display:flex; }
+
+/* — category scroll — */
+.cat-scroll-wrap {
+  position:relative;
+  overflow:hidden;
+}
+.cat-scroll-wrap::after {
+  content:'';
+  position:absolute; top:0; right:0; bottom:0;
+  width:40px;
+  background:linear-gradient(to right, transparent, rgba(253,248,243,0.97));
+  pointer-events:none;
+}
+.cat-scroll {
+  display:flex; gap:.35rem;
+  overflow-x:auto; scrollbar-width:none;
+  padding:.62rem 1.25rem .62rem;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  cursor:grab;
+}
+.cat-scroll:active { cursor:grabbing; }
+.cat-scroll::-webkit-scrollbar { display:none; }
+.cat-pill {
+  font-size:.7rem; font-weight:500;
+  color:var(--ink3); background:transparent;
+  border:1.5px solid var(--border2);
+  border-radius:50px; padding:.32rem .88rem;
+  white-space:nowrap; flex-shrink:0;
+  cursor:pointer; scroll-snap-align:start;
+  transition:all .18s var(--ease); user-select:none;
+}
+.cat-pill.active {
+  color:var(--spice); background:var(--spice-tint);
+  border-color:var(--spice); font-weight:600;
+}
+
+/* ══════════════════════════════
+   MENU LAYOUT — DESKTOP SIDEBAR
+══════════════════════════════ */
+.menu-body {
+  display:block;
+}
+
+/* FIX: Hide sidebar nav on mobile/tablet — only shown at ≥900px */
+.sidebar-nav { display: none; }
+
+/* ══════════════════════════════
+   SECTION
+══════════════════════════════ */
+.page { padding:0 0 5rem; }
+
+.menu-section {
+  opacity:0; transform:translateY(14px);
+  transition:opacity .4s var(--ease), transform .4s var(--ease);
+}
+.menu-section.visible { opacity:1; transform:none; }
+.item-card.hidden-veg,
+.item-card.hidden-nv  { display:none; }
+.menu-section.all-hidden { display:none; }
+
+.sec-header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1.4rem 1.25rem .65rem;
+}
+.sec-title {
+  font-family:'Fraunces',serif;
+  font-size:1.12rem; font-weight:600;
+  color:var(--ink); letter-spacing:-.02em;
+  display:flex; align-items:center; gap:.4rem;
+}
+.sec-count { font-size:.63rem; font-weight:400; color:var(--ink4); }
+.sec-rule {
+  height:1px;
+  background:linear-gradient(to right, var(--border2), transparent 85%);
+  margin:0 1.25rem .15rem;
+}
+.sec-divider {
+  height:7px; background:var(--cream2);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+
+/* ══════════════════════════════
+   ITEM CARD
+══════════════════════════════ */
+.item-card {
+  display:flex; align-items:flex-start;
+  gap:.9rem; padding:1rem 1.25rem;
+  background:var(--cream);
+  border-bottom:1px solid var(--border);
+  transition:background .15s;
+}
+.dot-wrap { flex-shrink:0; margin-top:3px; }
+.vd {
+  width:14px; height:14px;
+  border-radius:3px; border:1.5px solid;
+  display:flex; align-items:center; justify-content:center;
+}
+.vd::after { content:''; width:6px; height:6px; border-radius:50%; }
+.vd.veg { border-color:var(--green); }
+.vd.veg::after  { background:var(--green); }
+.vd.nv  { border-color:var(--spice); }
+.vd.nv::after   { background:var(--spice); }
+
+.item-body { flex:1; min-width:0; }
+.item-name {
+  font-family:'Fraunces',serif;
+  font-size:.96rem; font-weight:600;
+  color:var(--ink); letter-spacing:-.015em;
+  line-height:1.3; margin-bottom:.18rem;
+}
+.item-desc {
+  font-size:.72rem; font-weight:300;
+  color:var(--ink3); line-height:1.55;
+  margin-bottom:.42rem;
+  display:-webkit-box; -webkit-line-clamp:2;
+  -webkit-box-orient:vertical; overflow:hidden;
+}
+.price-simple {
+  font-family:'Fraunces',serif;
+  font-size:.92rem; font-weight:600;
+  color:var(--ink); display:inline-block;
+}
+.price-row { display:flex; align-items:center; flex-wrap:wrap; gap:.35rem; margin-top:.22rem; }
+.price-cheese-tag {
+  display:inline-flex; align-items:center;
+  font-size:.65rem; font-weight:500;
+  color:var(--spice); background:var(--spice-tint);
+  border:1px solid rgba(192,57,11,0.15);
+  border-radius:6px; padding:.16rem .48rem;
+}
+.price-variants { display:flex; gap:.32rem; flex-wrap:wrap; margin-top:.38rem; }
+.pv {
+  display:flex; flex-direction:column; align-items:center;
+  background:var(--cream2); border:1px solid var(--border2);
+  border-radius:9px; padding:.3rem .58rem; min-width:50px;
+}
+.pv-label {
+  font-size:.52rem; font-weight:600;
+  color:var(--ink4); letter-spacing:.07em;
+  text-transform:uppercase; margin-bottom:2px; white-space:nowrap;
+}
+.pv-price {
+  font-family:'Fraunces',serif;
+  font-size:.82rem; font-weight:600;
+  color:var(--ink); letter-spacing:-.01em;
+}
+.pv.cheese { background:var(--spice-tint); border-color:rgba(192,57,11,0.18); }
+.pv.cheese .pv-label { color:var(--spice); }
+.pv.cheese .pv-price { color:var(--spice); }
+
+/* ══════════════════════════════
+   COMBO CARD
+══════════════════════════════ */
+.combo-wrap { padding:.8rem 1.25rem 1.25rem; }
+.combo-card {
+  background:var(--ink);
+  border-radius:18px; padding:1.4rem 1.4rem;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:1rem; position:relative; overflow:hidden;
+  box-shadow:0 8px 32px rgba(26,18,8,0.18);
+}
+.combo-card::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 80% 60% at 100% 0%, rgba(192,57,11,0.28), transparent);
+}
+.combo-card > * { position:relative; }
+.combo-eyebrow {
+  font-size:.57rem; font-weight:600;
+  letter-spacing:.14em; text-transform:uppercase;
+  color:var(--spice2); margin-bottom:.38rem;
+}
+.combo-name {
+  font-family:'Fraunces',serif;
+  font-size:1.05rem; font-weight:600;
+  color:#fdf8f3; line-height:1.3; letter-spacing:-.02em;
+}
+.combo-note {
+  font-size:.67rem; font-weight:300;
+  color:rgba(253,248,243,0.42); margin-top:.3rem;
+}
+.combo-price-side { text-align:right; flex-shrink:0; }
+.combo-amount {
+  font-family:'Fraunces',serif;
+  font-size:2.2rem; font-weight:700;
+  color:#fdf8f3; letter-spacing:-.04em; line-height:1;
+}
+.combo-sub {
+  font-size:.58rem; font-weight:300;
+  color:rgba(253,248,243,0.38); margin-top:.22rem;
+}
+
+/* ══════════════════════════════
+   CONTACT / PDF
+══════════════════════════════ */
+.contact-section {
+  margin:1rem 1.25rem 0;
+  background:var(--cream2); border:1px solid var(--border2);
+  border-radius:18px; overflow:hidden;
+}
+.contact-top { padding:1.5rem 1.4rem; border-bottom:1px solid var(--border2); }
+.contact-icon { font-size:1.5rem; margin-bottom:.65rem; display:block; }
+.contact-title {
+  font-family:'Fraunces',serif;
+  font-size:1.08rem; font-weight:600;
+  color:var(--ink); margin-bottom:.28rem;
+}
+.contact-desc {
+  font-size:.76rem; font-weight:300;
+  color:var(--ink3); line-height:1.6; margin-bottom:1rem;
+}
+.btn-pdf {
+  display:flex; align-items:center; justify-content:center; gap:.55rem;
+  background:var(--ink); color:var(--cream);
+  font-family:'DM Sans',sans-serif;
+  font-size:.78rem; font-weight:600; letter-spacing:.04em;
+  padding:.85rem 1.5rem;
+  border:none; border-radius:10px;
+  cursor:pointer; text-decoration:none; width:100%;
+  transition:opacity .15s, transform .1s;
+}
+.btn-pdf:active { opacity:.85; transform:scale(.99); }
+.contact-phones { display:grid; grid-template-columns:1fr 1fr; }
+.phone-cell { padding:1rem 1.4rem; border-right:1px solid var(--border2); }
+.phone-cell:last-child { border-right:none; }
+.phone-label {
+  font-size:.56rem; font-weight:600;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink4); margin-bottom:.3rem;
+}
+.phone-num {
+  font-family:'Fraunces',serif;
+  font-size:.88rem; font-weight:600;
+  color:var(--spice); text-decoration:none; display:block;
+}
+
+/* ══════════════════════════════
+   FILTER EMPTY STATE
+══════════════════════════════ */
+.filter-empty {
+  display:none; flex-direction:column;
+  align-items:center; padding:3.5rem 1.5rem; text-align:center;
+}
+.filter-empty.visible { display:flex; }
+.filter-empty-icon { font-size:2.5rem; margin-bottom:.75rem; }
+.filter-empty-title {
+  font-family:'Fraunces',serif;
+  font-size:1rem; font-weight:600;
+  color:var(--ink); margin-bottom:.3rem;
+}
+.filter-empty-sub { font-size:.78rem; color:var(--ink3); }
+
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+.footer {
+  background:var(--ink);
+  padding:2.5rem 1.25rem 3rem; margin-top:1.5rem;
+}
+.footer-top {
+  display:flex; align-items:flex-start; gap:.9rem;
+  padding-bottom:1.5rem;
+  border-bottom:1px solid rgba(253,248,243,0.08);
+  margin-bottom:1.5rem;
+}
+.footer-logo {
+  width:44px; height:44px; border-radius:11px;
+  background:rgba(253,248,243,0.07);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.3rem; flex-shrink:0;
+}
+.footer-brand-name {
+  font-family:'Fraunces',serif;
+  font-size:.97rem; font-weight:600;
+  color:rgba(253,248,243,0.88);
+}
+.footer-brand-sub {
+  font-size:.66rem; font-weight:300;
+  color:rgba(253,248,243,0.32); margin-top:.14rem; line-height:1.6;
+}
+.footer-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:1.5rem 1.2rem; margin-bottom:1.5rem;
+}
+.fg-block h4 {
+  font-size:.56rem; font-weight:600;
+  letter-spacing:.14em; text-transform:uppercase;
+  color:var(--spice2); margin-bottom:.55rem;
+}
+.fg-block p, .fg-block a {
+  font-size:.77rem; font-weight:300;
+  color:rgba(253,248,243,0.44);
+  line-height:1.9; text-decoration:none; display:block;
+}
+.fg-block a:hover { color:rgba(253,248,243,0.75); }
+.map-link {
+  display:inline-flex; align-items:center; gap:.35rem;
+  font-size:.7rem; font-weight:500;
+  color:rgba(253,248,243,0.55);
+  border:1px solid rgba(253,248,243,0.1);
+  border-radius:8px; padding:.38rem .72rem;
+  text-decoration:none; margin-top:.4rem; width:fit-content;
+  transition:background .15s;
+}
+.map-link:hover { background:rgba(253,248,243,0.05); }
+.footer-bottom {
+  padding-top:1.1rem;
+  border-top:1px solid rgba(253,248,243,0.07);
+  font-size:.61rem; font-weight:300;
+  color:rgba(253,248,243,0.22);
+  line-height:2; text-align:center;
+}
+.footer-bottom span { color:rgba(253,248,243,0.42); }
+
+/* ══════════════════════════════
+   BOTTOM NAV (mobile only)
+══════════════════════════════ */
+.bottom-nav {
+  position:fixed; bottom:0; left:0; right:0; z-index:500;
+  background:rgba(253,248,243,0.97);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-top:1px solid var(--border2);
+  display:flex; align-items:stretch; height:60px;
+  box-shadow:0 -4px 20px rgba(26,18,8,0.07);
+}
+.bnav-item {
+  flex:1; display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  gap:.18rem; cursor:pointer;
+  font-size:.52rem; font-weight:500;
+  color:var(--ink4); letter-spacing:.04em; text-transform:uppercase;
+  transition:color .15s;
+  border:none; background:transparent; padding:0;
+}
+.bnav-item.active { color:var(--spice); }
+.bnav-item.active .bnav-icon svg { stroke:var(--spice); }
+
+/* SVG icons in bottom nav */
+.bnav-icon {
+  width:22px; height:22px;
+  display:flex; align-items:center; justify-content:center;
+}
+.bnav-icon svg {
+  width:20px; height:20px;
+  stroke:var(--ink4);
+  stroke-width:1.7;
+  fill:none;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  transition:stroke .15s;
+}
+.bnav-item.active .bnav-icon svg { stroke:var(--spice); }
+.bnav-label {
+  font-size:.5rem; font-weight:600;
+  letter-spacing:.06em; text-transform:uppercase;
+  line-height:1;
+}
+
+/* ══════════════════════════════
+   TABLET  ≥ 640px
+══════════════════════════════ */
+@media(min-width:640px) {
+  .hero { padding:3rem 2rem 2.5rem; }
+  .item-card { padding:1.1rem 1.5rem; }
+  .sec-header { padding:1.4rem 1.5rem .65rem; }
+  .sec-rule { margin:0 1.5rem .15rem; }
+  .contact-section { margin:1rem 1.5rem 0; }
+  .combo-wrap { padding:.8rem 1.5rem 1.25rem; }
+  .footer { padding:2.5rem 2rem 3rem; }
+  .topbar { padding:0 1.5rem; }
+  .filter-row { padding:.5rem 1.5rem .45rem; }
+  .cat-scroll { padding:.62rem 1.5rem .62rem; }
+}
+
+/* ══════════════════════════════
+   DESKTOP  ≥ 900px
+   Two-column: sticky side nav + content
+══════════════════════════════ */
+@media(min-width:900px) {
+
+  /* hide bottom nav, show desktop side */
+  .bottom-nav { display:none; }
+  .page { padding-bottom:2rem; }
+
+  /* topbar full width within page-outer */
+  .topbar { padding:0 2rem; }
+  .filter-row { padding:.55rem 2rem .5rem; }
+  .cat-scroll { padding:.65rem 2rem .65rem; }
+
+  /* hero wider */
+  .hero { padding:3.5rem 2rem 3rem; }
+  .hero-chips { gap:.4rem; }
+
+  /* two-column layout */
+  .menu-body {
+    display:grid;
+    grid-template-columns:200px 1fr;
+    align-items:start;
+    gap:0;
+  }
+
+  /* — sidebar sticky nav — FIX: display:flex only at desktop */
+  .sidebar-nav {
+    display:flex;
+    position:sticky;
+    top:calc(var(--topbar-h) + var(--navwrap-h, 90px));
+    flex-direction:column;
+    gap:.18rem;
+    padding:1.5rem 1rem 1.5rem 2rem;
+    border-right:1px solid var(--border);
+    max-height:calc(100vh - var(--topbar-h) - 90px);
+    overflow-y:auto; scrollbar-width:none;
+  }
+  .sidebar-nav::-webkit-scrollbar { display:none; }
+  .sidebar-pill {
+    font-size:.72rem; font-weight:500;
+    color:var(--ink3); background:transparent;
+    border:none; border-radius:8px;
+    padding:.45rem .75rem;
+    cursor:pointer; text-align:left;
+    transition:all .16s var(--ease);
+    white-space:nowrap;
+  }
+  .sidebar-pill:hover { color:var(--ink); background:var(--cream2); }
+  .sidebar-pill.active {
+    color:var(--spice); background:var(--spice-tint);
+    font-weight:600;
+  }
+
+  /* content area */
+  .menu-content { min-width:0; }
+
+  /* cards bigger on desktop */
+  .item-card { padding:1.2rem 2rem; }
+  .sec-header { padding:1.5rem 2rem .7rem; }
+  .sec-rule { margin:0 2rem .2rem; }
+  .combo-wrap { padding:.8rem 2rem 1.4rem; }
+  .contact-section { margin:1rem 2rem 0; }
+  .footer { padding:3rem 2.5rem 3.5rem; }
+  .footer-grid { grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+
+  /* hide mobile cat-scroll, show sidebar only */
+  .nav-wrap .cat-scroll-wrap { display:none; }
+}
+
+/* ══════════════════════════════
+   WIDE  ≥ 1024px — extra breathing room
+══════════════════════════════ */
+@media(min-width:1024px) {
+  :root { --page-w:1020px; }
+  .menu-body { grid-template-columns:220px 1fr; }
+  .hero-title { font-size:3.5rem; }
+}
+</style>
+</head>
+<body>
+<div class="page-outer">
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="topbar-left">
+    <div class="logo-mark">🍜</div>
+    <div>
+      <div class="logo-name">Cotton Collej</div>
+      <div class="logo-loc">Jorhat, Assam</div>
+    </div>
+  </div>
+  <span class="open-badge">Open Now</span>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Indo-Chinese &amp; Street Food</div>
+    <h1 class="hero-title">Cotton Collej<br><em>Restaurant</em></h1>
+    <p class="hero-desc">Fresh noodles, crispy momos, and soulful thukpa — made daily in the heart of Jorhat.</p>
+    <div class="hero-chips">
+      <span class="hero-chip">🌯 Rolls</span>
+      <span class="hero-chip">🍝 Chowmein</span>
+      <span class="hero-chip">🍚 Fried Rice</span>
+      <span class="hero-chip">🥟 Momos</span>
+      <span class="hero-chip">🍗 Chicken</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat">
+        <span class="hstat-val"><span class="star-gold">★</span> 4.2</span>
+        <span class="hstat-label">Rating</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-val">₹50–₹170</span>
+        <span class="hstat-label">Price range</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-val">Daily</span>
+        <span class="hstat-label">Open hours</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NAV WRAP -->
+<div class="nav-wrap" id="navwrap">
+  <!-- filter row -->
+  <div class="filter-row">
+    <span class="filter-label">Filter</span>
+    <button class="filter-btn veg-btn" id="filterVeg" onclick="setFilter('veg')">
+      <span class="fb-dot"></span>Veg Only
+    </button>
+    <button class="filter-btn nv-btn" id="filterNv" onclick="setFilter('nv')">
+      <span class="fb-dot"></span>Non-Veg
+    </button>
+    <button class="filter-btn clear-btn" id="filterClear" onclick="setFilter(null)">✕ Clear</button>
+  </div>
+  <!-- scrollable category pills (mobile + tablet) -->
+  <div class="cat-scroll-wrap">
+    <div class="cat-scroll" id="catscroll">
+      <button class="cat-pill" data-target="roll">🌯 Rolls</button>
+      <button class="cat-pill" data-target="chowmein">🍝 Chowmein</button>
+      <button class="cat-pill" data-target="friedrice">🍚 Fried Rice</button>
+      <button class="cat-pill" data-target="pasta">🍝 Pasta</button>
+      <button class="cat-pill" data-target="momo">🥟 Momo</button>
+      <button class="cat-pill" data-target="thukpa">🍜 Thukpa</button>
+      <button class="cat-pill" data-target="combo">🎁 Combo</button>
+      <button class="cat-pill" data-target="chicken">🍗 Chicken</button>
+    </div>
+  </div>
+</div>
+
+<!-- MENU BODY -->
+<div class="menu-body">
+
+  <!-- DESKTOP SIDEBAR NAV -->
+  <nav class="sidebar-nav" id="sidebarNav">
+    <button class="sidebar-pill" data-target="roll">🌯 Rolls</button>
+    <button class="sidebar-pill" data-target="chowmein">🍝 Chowmein</button>
+    <button class="sidebar-pill" data-target="friedrice">🍚 Fried Rice</button>
+    <button class="sidebar-pill" data-target="pasta">🍝 Pasta</button>
+    <button class="sidebar-pill" data-target="momo">🥟 Momo</button>
+    <button class="sidebar-pill" data-target="thukpa">🍜 Thukpa</button>
+    <button class="sidebar-pill" data-target="combo">🎁 Combo</button>
+    <button class="sidebar-pill" data-target="chicken">🍗 Chicken</button>
+  </nav>
+
+  <!-- MENU CONTENT -->
+  <div class="menu-content">
+  <main class="page" id="menupage">
+
+  <!-- ROLLS -->
+  <div class="menu-section" id="roll">
+    <div class="sec-header">
+      <div class="sec-title"><span>🌯</span>Rolls</div>
+      <span class="sec-count">4 items</span>
+    </div>
+    <div class="sec-rule"></div>
+    <div class="item-card" data-type="veg">
+      <div class="dot-wrap"><div class="vd veg"></div></div>
+      <div class="item-body">
+        <div class="item-name">Veg Roll</div>
+        <div class="item-desc">Fresh seasonal vegetables, light spice, soft roti wrap</div>
+        <div class="price-row"><span class="price-simple">₹50</span><span class="price-cheese-tag">+Cheese ₹70</span></div>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Egg Roll</div>
+        <div class="item-desc">Fluffy egg, sauces &amp; crunch in a soft roti</div>
+        <div class="price-row"><span class="price-simple">₹60</span><span class="price-cheese-tag">+Cheese ₹80</span></div>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Double Egg Roll</div>
+        <div class="item-desc">Two eggs, double the flavour</div>
+        <div class="price-row"><span class="price-simple">₹70</span><span class="price-cheese-tag">+Cheese ₹90</span></div>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Egg &amp; Chicken Roll</div>
+        <div class="item-desc">Egg and tender chicken in a soft wrap</div>
+        <div class="price-row"><span class="price-simple">₹80</span><span class="price-cheese-tag">+Cheese ₹100</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="sec-divider"></div>
+
+  <!-- CHOWMEIN -->
+  <div class="menu-section" id="chowmein">
+    <div class="sec-header">
+      <div class="sec-title"><span>🍝</span>Chowmein</div>
+      <span class="sec-count">5 items</span>
+    </div>
+    <div class="sec-rule"></div>
+    <div class="item-card" data-type="veg">
+      <div class="dot-wrap"><div class="vd veg"></div></div>
+      <div class="item-body">
+        <div class="item-name">Veg Chowmein</div>
+        <div class="price-variants">
+          <div class="pv"><span class="pv-label">Reg</span><span class="pv-price">₹50</span></div>
+          <div class="pv"><span class="pv-label">Garlic</span><span class="pv-price">₹60</span></div>
+          <div class="pv"><span class="pv-label">Sch</span><span class="pv-price">₹60</span></div>
+          <div class="pv cheese"><span class="pv-label">Cheese</span><span class="pv-price">₹70</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Egg Chowmein</div>
+        <div class="price-variants">
+          <div class="pv"><span class="pv-label">Reg</span><span class="pv-price">₹70</span></div>
+          <div class="pv"><span class="pv-label">Garlic</span><span class="pv-price">₹80</span></div>
+          <div class="pv"><span class="pv-label">Sch</span><span class="pv-price">₹80</span></div>
+          <div class="pv cheese"><span class="pv-label">Cheese</span><span class="pv-price">₹80</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Chicken Chowmein</div>
+        <div class="price-variants">
+          <div class="pv"><span class="pv-label">Reg</span><span class="pv-price">₹70</span></div>
+          <div class="pv"><span class="pv-label">Garlic</span><span class="pv-price">₹80</span></div>
+          <div class="pv"><span class="pv-label">Sch</span><span class="pv-price">₹80</span></div>
+          <div class="pv cheese"><span class="pv-label">Cheese</span><span class="pv-price">₹100</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Egg &amp; Chicken Chowmein</div>
+        <div class="price-variants">
+          <div class="pv"><span class="pv-label">Reg</span><span class="pv-price">₹80</span></div>
+          <div class="pv"><span class="pv-label">Garlic</span><span class="pv-price">₹90</span></div>
+          <div class="pv"><span class="pv-label">Sch</span><span class="pv-price">₹90</span></div>
+          <div class="pv cheese"><span class="pv-label">Cheese</span><span class="pv-price">₹110</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="item-card" data-type="veg">
+      <div class="dot-wrap"><div class="vd veg"></div></div>
+      <div class="item-body">
+        <div class="item-name">Paneer Chowmein</div>
+        <div class="price-variants">
+          <div class="pv"><span class="pv-label">Reg</span><span class="pv-price">₹80</span></div>
+          <div class="pv"><span class="pv-label">Garlic</span><span class="pv-price">₹90</span></div>
+          <div class="pv"><span class="pv-label">Sch</span><span class="pv-price">₹90</span></div>
+          <div class="pv cheese"><span class="pv-label">Cheese</span><span class="pv-price">₹110</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec-divider"></div>
+
+  <!-- FRIED RICE -->
+  <div class="menu-section" id="friedrice">
+    <div class="sec-header">
+      <div class="sec-title"><span>🍚</span>Fried Rice</div>
+      <span class="sec-count">5 items</span>
+    </div>
+    <div class="sec-rule"></div>
+    <div class="item-card" data-type="veg">
+      <div class="dot-wrap"><div class="vd veg"></div></div>
+      <div class="item-body">
+        <div class="item-name">Veg Fried Rice</div>
+        <div class="price-variants">
+          <div class="pv"><span class="pv-label">Reg</span><span class="pv-price">₹50</span></div>
+          <div class="pv"><span class="pv-label">Sch</span><span class="pv-price">₹60</span></div>
+          <div class="pv cheese"><span class="pv-label">Cheese</span><span class="pv-price">₹70</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Egg Fried Rice</div>
+        <div class="price-variants">
+          <div class="pv"><span class="pv-label">Reg</span><span class="pv-price">₹70</span></div>
+          <div class="pv"><span class="pv-label">Sch</span><span class="pv-price">₹80</span></div>
+          <div class="pv cheese"><span class="pv-label">Cheese</span><span class="pv-price">₹90</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Chicken Fried Rice</div>
+        <div class="price-variants">
+          <div class="pv"><span class="pv-label">Reg</span><span class="pv-price">₹80</span></div>
+          <div class="pv"><span class="pv-label">Sch</span><span class="pv-price">₹90</span></div>
+          <div class="pv cheese"><span class="pv-label">Cheese</span><span class="pv-price">₹100</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Egg &amp; Chicken Fried Rice</div>
+        <div class="price-variants">
+          <div class="pv"><span class="pv-label">Reg</span><span class="pv-price">₹80</span></div>
+          <div class="pv"><span class="pv-label">Sch</span><span class="pv-price">₹90</span></div>
+          <div class="pv cheese"><span class="pv-label">Cheese</span><span class="pv-price">₹110</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="item-card" data-type="veg">
+      <div class="dot-wrap"><div class="vd veg"></div></div>
+      <div class="item-body">
+        <div class="item-name">Paneer Fried Rice</div>
+        <div class="price-variants">
+          <div class="pv"><span class="pv-label">Reg</span><span class="pv-price">₹80</span></div>
+          <div class="pv"><span class="pv-label">Sch</span><span class="pv-price">₹90</span></div>
+          <div class="pv cheese"><span class="pv-label">Cheese</span><span class="pv-price">₹110</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec-divider"></div>
+
+  <!-- PASTA -->
+  <div class="menu-section" id="pasta">
+    <div class="sec-header">
+      <div class="sec-title"><span>🍝</span>Pasta</div>
+      <span class="sec-count">2 items</span>
+    </div>
+    <div class="sec-rule"></div>
+    <div class="item-card" data-type="veg">
+      <div class="dot-wrap"><div class="vd veg"></div></div>
+      <div class="item-body">
+        <div class="item-name">Veg Pasta</div>
+        <div class="price-variants">
+          <div class="pv"><span class="pv-label">Reg</span><span class="pv-price">₹50</span></div>
+          <div class="pv"><span class="pv-label">White</span><span class="pv-price">₹60</span></div>
+          <div class="pv cheese"><span class="pv-label">Cheese</span><span class="pv-price">₹80</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Chicken Pasta</div>
+        <div class="price-variants">
+          <div class="pv"><span class="pv-label">Reg</span><span class="pv-price">₹70</span></div>
+          <div class="pv"><span class="pv-label">White</span><span class="pv-price">₹80</span></div>
+          <div class="pv cheese"><span class="pv-label">Cheese</span><span class="pv-price">₹100</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec-divider"></div>
+
+  <!-- MOMO -->
+  <div class="menu-section" id="momo">
+    <div class="sec-header">
+      <div class="sec-title"><span>🥟</span>Momo</div>
+      <span class="sec-count">4 items</span>
+    </div>
+    <div class="sec-rule"></div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Chicken Steam Momo</div>
+        <div class="item-desc">Soft steamed dumplings with juicy chicken filling</div>
+        <span class="price-simple">₹50</span>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Chicken Fry Momo</div>
+        <div class="item-desc">Crispy golden fried momos with chutney</div>
+        <span class="price-simple">₹70</span>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Chicken Malai Momo</div>
+        <div class="item-desc">Creamy malai sauce coated chicken dumplings</div>
+        <span class="price-simple">₹80</span>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Chicken Schezwan Momo</div>
+        <div class="item-desc">Spicy schezwan sauce tossed with fried momos</div>
+        <span class="price-simple">₹80</span>
+      </div>
+    </div>
+  </div>
+  <div class="sec-divider"></div>
+
+  <!-- THUKPA -->
+  <div class="menu-section" id="thukpa">
+    <div class="sec-header">
+      <div class="sec-title"><span>🍜</span>Thukpa</div>
+      <span class="sec-count">3 items</span>
+    </div>
+    <div class="sec-rule"></div>
+    <div class="item-card" data-type="veg">
+      <div class="dot-wrap"><div class="vd veg"></div></div>
+      <div class="item-body">
+        <div class="item-name">Veg Thukpa</div>
+        <div class="item-desc">Traditional Himalayan noodle soup, fresh vegetables</div>
+        <span class="price-simple">₹50</span>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Egg Thukpa</div>
+        <div class="item-desc">Comforting noodle broth with egg</div>
+        <span class="price-simple">₹60</span>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Chicken Thukpa</div>
+        <div class="item-desc">Rich broth with tender chicken and hand-pulled noodles</div>
+        <span class="price-simple">₹70</span>
+      </div>
+    </div>
+  </div>
+  <div class="sec-divider"></div>
+
+  <!-- COMBO -->
+  <div class="menu-section" id="combo">
+    <div class="sec-header">
+      <div class="sec-title"><span>🎁</span>Combo</div>
+      <span class="sec-count">Best value</span>
+    </div>
+    <div class="combo-wrap">
+      <div class="combo-card">
+        <div>
+          <div class="combo-eyebrow">Best Value Deal</div>
+          <div class="combo-name">Veg Fried Rice &amp;<br>Chilli Chicken</div>
+          <div class="combo-note">3 pieces of chicken included</div>
+        </div>
+        <div class="combo-price-side">
+          <div class="combo-amount">₹130</div>
+          <div class="combo-sub">Combo Pack</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec-divider"></div>
+
+  <!-- CHICKEN -->
+  <div class="menu-section" id="chicken">
+    <div class="sec-header">
+      <div class="sec-title"><span>🍗</span>Chicken's</div>
+      <span class="sec-count">8 items</span>
+    </div>
+    <div class="sec-rule"></div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Chicken Pokora</div>
+        <div class="item-desc">4 Pieces · Crispy fried chicken fritters</div>
+        <span class="price-simple">₹50</span>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Chicken Pokora Special</div>
+        <div class="item-desc">4 Pieces · Special spice blend</div>
+        <span class="price-simple">₹70</span>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Chilli Chicken</div>
+        <div class="item-desc">10 Pieces · Indo-Chinese classic, dry &amp; spicy</div>
+        <span class="price-simple">₹150</span>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Chicken Dry Fry</div>
+        <div class="item-desc">10 Pieces · Crispy deep fried chicken</div>
+        <span class="price-simple">₹150</span>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Chicken Manchurian</div>
+        <div class="item-desc">10 Pieces · Juicy chicken in manchurian gravy</div>
+        <span class="price-simple">₹170</span>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Chicken 65</div>
+        <div class="item-desc">6 Pieces · South Indian style spicy chicken</div>
+        <span class="price-simple">₹150</span>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Garlic Chicken</div>
+        <div class="item-desc">8 Pieces · Stir-fried with garlic butter sauce</div>
+        <span class="price-simple">₹150</span>
+      </div>
+    </div>
+    <div class="item-card" data-type="nv">
+      <div class="dot-wrap"><div class="vd nv"></div></div>
+      <div class="item-body">
+        <div class="item-name">Dragon Chicken</div>
+        <div class="item-desc">8 Pieces · Fiery dragon sauce, extra spicy</div>
+        <span class="price-simple">₹150</span>
+      </div>
+    </div>
+  </div>
+  <div class="sec-divider"></div>
+
+  <!-- PDF / CONTACT -->
+  <div id="download" style="padding:.75rem 0 .25rem;">
+    <div class="contact-section">
+      <div class="contact-top">
+        <span class="contact-icon">📋</span>
+        <div class="contact-title">Full Menu PDF</div>
+        <div class="contact-desc">Save our menu offline or share with friends &amp; family.</div>
+        <a class="btn-pdf" href="#" onclick="alert('Replace with your PDF link.');return false;">↓ &nbsp;Download Menu PDF</a>
+      </div>
+      <div class="contact-phones">
+        <div class="phone-cell">
+          <div class="phone-label">Call us</div>
+          <a href="tel:+919864430082" class="phone-num">98644 30082</a>
+        </div>
+        <div class="phone-cell">
+          <div class="phone-label">Bulk Orders</div>
+          <a href="tel:+919387692211" class="phone-num">93876 92211</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMPTY STATE -->
+  <div class="filter-empty" id="filterEmpty">
+    <div class="filter-empty-icon" id="filterEmptyIcon">🥦</div>
+    <div class="filter-empty-title" id="filterEmptyTitle">No items match this filter</div>
+    <div class="filter-empty-sub">Try another category or clear the filter</div>
+  </div>
+
+  </main>
+  </div><!-- /menu-content -->
+</div><!-- /menu-body -->
+
+<!-- FOOTER -->
+<footer class="footer" id="footer-loc">
+  <div class="footer-top">
+    <div class="footer-logo">🍜</div>
+    <div>
+      <div class="footer-brand-name">Cotton Collej Restaurant</div>
+      <div class="footer-brand-sub">Indo-Chinese &amp; Street Food<br>Jorhat, Assam</div>
+    </div>
+  </div>
+  <div class="footer-grid">
+    <div class="fg-block">
+      <h4>Location</h4>
+      <p>Near Cotton College</p>
+      <p>Jorhat, Assam 785001</p>
+      <a class="map-link" href="https://maps.google.com/?q=Cotton+College+Jorhat" target="_blank">🗺 Google Maps</a>
+    </div>
+    <div class="fg-block">
+      <h4>Hours</h4>
+      <p>Open Daily</p>
+      <p>Morning – Late Night</p>
+    </div>
+    <div class="fg-block">
+      <h4>Social</h4>
+      <a href="#">📘 Facebook</a>
+      <a href="#">📸 Instagram</a>
+    </div>
+    <div class="fg-block">
+      <h4>About</h4>
+      <p>Fresh street-style Chinese &amp; Indo-Chinese, made with love in Jorhat every day.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 <span>Cotton Collej Restaurant</span> · All rights reserved</div>
+    <div>Designed by <span>SJS &amp; KC</span></div>
+  </div>
+</footer>
+
+</div><!-- /page-outer -->
+
+<!-- BOTTOM NAV (mobile only) — Home · Combos · Menu · Contact -->
+<nav class="bottom-nav">
+
+  <!-- HOME -->
+  <button class="bnav-item active" id="bnav-home">
+    <span class="bnav-icon">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 9.75L12 3l9 6.75V21a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9.75z"/>
+        <path d="M9 22V12h6v10"/>
+      </svg>
+    </span>
+    <span class="bnav-label">Home</span>
+  </button>
+
+  <!-- COMBOS -->
+  <button class="bnav-item" id="bnav-combo">
+    <span class="bnav-icon">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="2" y="7" width="20" height="14" rx="2"/>
+        <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+        <line x1="12" y1="12" x2="12" y2="16"/>
+        <line x1="10" y1="14" x2="14" y2="14"/>
+      </svg>
+    </span>
+    <span class="bnav-label">Combos</span>
+  </button>
+
+  <!-- MENU (PDF download) -->
+  <button class="bnav-item" id="bnav-menu">
+    <span class="bnav-icon">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
+        <rect x="9" y="3" width="6" height="4" rx="1"/>
+        <line x1="9" y1="12" x2="15" y2="12"/>
+        <line x1="9" y1="16" x2="13" y2="16"/>
+      </svg>
+    </span>
+    <span class="bnav-label">Menu</span>
+  </button>
+
+  <!-- CONTACT -->
+  <button class="bnav-item" id="bnav-contact">
+    <span class="bnav-icon">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </svg>
+    </span>
+    <span class="bnav-label">Contact</span>
+  </button>
+
+</nav>
+
+<script>
+/* ════════════════════════════════════════
+   1. UTILITIES
+════════════════════════════════════════ */
+
+function stickyOffset() {
+  const nw = document.getElementById('navwrap');
+  return 58 + (nw ? nw.offsetHeight : 0);
+}
+
+/* Generic scroll-to-element, clearing sticky header */
+function scrollToEl(el) {
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.scrollY - stickyOffset() - 4;
+  window.scrollTo({ top, behavior: 'smooth' });
+}
+
+function scrollSec(id) {
+  scrollToEl(document.getElementById(id));
+}
+
+/* ════════════════════════════════════════
+   2. SECTION REVEAL (fade-in)
+════════════════════════════════════════ */
+const sections = document.querySelectorAll('.menu-section');
+
+const revealIO = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+sections.forEach(s => revealIO.observe(s));
+
+/* ════════════════════════════════════════
+   3. MENU CATEGORY PILLS
+      — cat-scroll (mobile) + sidebar (desktop)
+      — click → scroll to section + highlight pill
+      — scroll → auto-highlight current section
+════════════════════════════════════════ */
+const SECTION_IDS = ['roll','chowmein','friedrice','pasta','momo','thukpa','combo','chicken'];
+const allPills    = document.querySelectorAll('.cat-pill, .sidebar-pill');
+
+function setActivePill(id) {
+  allPills.forEach(p => p.classList.toggle('active', p.dataset.target === id));
+  // keep mobile pill scrolled into view
+  const mob = document.querySelector(`.cat-pill[data-target="${id}"]`);
+  if (mob) mob.scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
+}
+
+// wire up every pill (cat + sidebar)
+allPills.forEach(p => {
+  p.addEventListener('click', () => {
+    setActivePill(p.dataset.target);
+    scrollSec(p.dataset.target);
+  });
+});
+
+// track active pill as user scrolls
+function syncPillToScroll() {
+  const threshold = stickyOffset() + 20;
+  let active = SECTION_IDS[0];
+  for (const id of SECTION_IDS) {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top <= threshold) active = id;
+  }
+  setActivePill(active);
+}
+window.addEventListener('scroll', syncPillToScroll, { passive: true });
+syncPillToScroll(); // run once on load
+
+/* ════════════════════════════════════════
+   4. DRAG-TO-SCROLL — mobile cat bar
+════════════════════════════════════════ */
+const cs = document.getElementById('catscroll');
+let drag = false, dragX, dragSL;
+cs.addEventListener('mousedown',  e => { drag=true; dragX=e.pageX-cs.offsetLeft; dragSL=cs.scrollLeft; cs.style.cursor='grabbing'; });
+cs.addEventListener('mouseleave', () => { drag=false; cs.style.cursor='grab'; });
+cs.addEventListener('mouseup',    () => { drag=false; cs.style.cursor='grab'; });
+cs.addEventListener('mousemove',  e => { if(!drag) return; e.preventDefault(); cs.scrollLeft=dragSL-(e.pageX-cs.offsetLeft-dragX); });
+
+/* ════════════════════════════════════════
+   5. VEG / NON-VEG FILTER
+════════════════════════════════════════ */
+let activeFilter = null;
+
+function setFilter(type) {
+  activeFilter = type;
+  document.getElementById('filterVeg').classList.toggle('active', type === 'veg');
+  document.getElementById('filterNv').classList.toggle('active',  type === 'nv');
+  document.getElementById('filterClear').classList.toggle('visible', !!type);
+
+  document.querySelectorAll('.item-card[data-type]').forEach(card => {
+    const t = card.dataset.type;
+    if (!type) {
+      card.classList.remove('hidden-veg','hidden-nv');
+    } else if (type === 'veg') {
+      card.classList.toggle('hidden-veg', t !== 'veg');
+      card.classList.remove('hidden-nv');
+    } else {
+      card.classList.toggle('hidden-nv', t !== 'nv');
+      card.classList.remove('hidden-veg');
+    }
+  });
+
+  let anyVisible = false;
+  sections.forEach(sec => {
+    const cards = sec.querySelectorAll('.item-card[data-type]');
+    if (!cards.length) { sec.classList.remove('all-hidden'); return; }
+    const allHidden = [...cards].every(c => c.classList.contains('hidden-veg') || c.classList.contains('hidden-nv'));
+    sec.classList.toggle('all-hidden', allHidden);
+    if (!allHidden) anyVisible = true;
+  });
+
+  const empty = document.getElementById('filterEmpty');
+  empty.classList.toggle('visible', !anyVisible && !!type);
+  document.getElementById('filterEmptyIcon').textContent  = type === 'veg' ? '🥦' : '🍗';
+  document.getElementById('filterEmptyTitle').textContent = type === 'veg' ? 'No veg items match' : 'No non-veg items match';
+}
+
+/* ════════════════════════════════════════
+   6. BOTTOM NAV
+      — click handlers wired in JS (not inline)
+      — active state follows scroll position
+════════════════════════════════════════ */
+const bnav = {
+  home:    document.getElementById('bnav-home'),
+  combo:   document.getElementById('bnav-combo'),
+  menu:    document.getElementById('bnav-menu'),
+  contact: document.getElementById('bnav-contact'),
+};
+
+function setBnavActive(key) {
+  Object.values(bnav).forEach(b => b && b.classList.remove('active'));
+  if (bnav[key]) bnav[key].classList.add('active');
+}
+
+// Click handlers
+bnav.home.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setBnavActive('home');
+});
+bnav.combo.addEventListener('click', () => {
+  scrollSec('combo');
+  setBnavActive('combo');
+});
+bnav.menu.addEventListener('click', () => {
+  scrollSec('download');
+  setBnavActive('menu');
+});
+bnav.contact.addEventListener('click', () => {
+  // scroll footer into view from the bottom
+  const footer = document.getElementById('footer-loc');
+  if (footer) footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  setBnavActive('contact');
+});
+
+// Scroll-sync for bottom nav active state
+window.addEventListener('scroll', () => {
+  const sy       = window.scrollY;
+  const footer   = document.getElementById('footer-loc');
+  const dlEl     = document.getElementById('download');
+  const comboEl  = document.getElementById('combo');
+  const off      = stickyOffset();
+
+  if (sy < 160) {
+    setBnavActive('home');
+  } else if (footer && sy + window.innerHeight >= footer.offsetTop + 40) {
+    setBnavActive('contact');
+  } else if (dlEl && sy >= dlEl.offsetTop - off - 40) {
+    setBnavActive('menu');
+  } else if (comboEl && sy >= comboEl.offsetTop - off - 40) {
+    setBnavActive('combo');
+  } else {
+    setBnavActive('home');
+  }
+}, { passive: true });
+
+/* ════════════════════════════════════════
+   7. SIDEBAR STICKY TOP (desktop only)
+════════════════════════════════════════ */
+function updateSidebarTop() {
+  const nw  = document.getElementById('navwrap');
+  const sb  = document.getElementById('sidebarNav');
+  if (!sb || !nw) return;
+  const top = 58 + nw.offsetHeight;
+  sb.style.top       = top + 'px';
+  sb.style.maxHeight = `calc(100vh - ${top}px)`;
+}
+window.addEventListener('resize', updateSidebarTop);
+updateSidebarTop();
+</script>
+</body>
+</html>
