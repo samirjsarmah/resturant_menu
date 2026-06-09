@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Cotton Collej Restaurant · Jorhat</title>
+<title>JAA· Guwahati</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -266,6 +266,8 @@ body {
 .menu-section {
   opacity:0; transform:translateY(14px);
   transition:opacity .4s var(--ease), transform .4s var(--ease);
+  background-color: #2a1a0e;
+
 }
 .menu-section.visible { opacity:1; transform:none; }
 .item-card.hidden-veg,
@@ -279,9 +281,10 @@ body {
 .sec-title {
   font-family:'Fraunces',serif;
   font-size:1.12rem; font-weight:600;
-  color:var(--ink); letter-spacing:-.02em;
+  color:#ffffff; letter-spacing:-.02em;
   display:flex; align-items:center; gap:.4rem;
 }
+.sec-count { font-size:.63rem; font-weight:400; color:rgba(255,255,255,0.5); }
 .sec-count { font-size:.63rem; font-weight:400; color:var(--ink4); }
 .sec-rule {
   height:1px;
@@ -372,11 +375,11 @@ body {
   border-radius:18px; padding:1.4rem 1.4rem;
   display:flex; align-items:center; justify-content:space-between;
   gap:1rem; position:relative; overflow:hidden;
-  box-shadow:0 8px 32px rgba(26,18,8,0.18);
+  box-shadow:0 8px 32px rgba(255, 255, 255, 0.18);
 }
 .combo-card::before {
   content:''; position:absolute; inset:0;
-  background:radial-gradient(ellipse 80% 60% at 100% 0%, rgba(192,57,11,0.28), transparent);
+  background:radial-gradient(ellipse 80% 60% at 100% 0%, rgba(255, 67, 4, 0.28), transparent);
 }
 .combo-card > * { position:relative; }
 .combo-eyebrow {
@@ -391,7 +394,7 @@ body {
 }
 .combo-note {
   font-size:.67rem; font-weight:300;
-  color:rgba(253,248,243,0.42); margin-top:.3rem;
+  color:rgba(255, 253, 250, 0.42); margin-top:.3rem;
 }
 .combo-price-side { text-align:right; flex-shrink:0; }
 .combo-amount {
@@ -401,7 +404,7 @@ body {
 }
 .combo-sub {
   font-size:.58rem; font-weight:300;
-  color:rgba(253,248,243,0.38); margin-top:.22rem;
+  color:rgba(255, 255, 255, 0.38); margin-top:.22rem;
 }
 
 /* ══════════════════════════════
@@ -676,8 +679,8 @@ body {
   <div class="topbar-left">
     <div class="logo-mark">🍜</div>
     <div>
-      <div class="logo-name">Cotton Collej</div>
-      <div class="logo-loc">Jorhat, Assam</div>
+      <div class="logo-name">Joi Aai Axom</div>
+      <div class="logo-loc">Guwahati, Assam</div>
     </div>
   </div>
   <span class="open-badge">Open Now</span>
@@ -687,8 +690,8 @@ body {
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Indo-Chinese &amp; Street Food</div>
-    <h1 class="hero-title">Cotton Collej<br><em>Restaurant</em></h1>
-    <p class="hero-desc">Fresh noodles, crispy momos, and soulful thukpa — made daily in the heart of Jorhat.</p>
+    <h1 class="hero-title">Jai Aai Axom<br><em>Restaurant</em></h1>
+    <p class="hero-desc">Fresh noodles, crispy momos, and soulful thukpa — made daily in the heart of Guwahati.</p>
     <div class="hero-chips">
       <span class="hero-chip">🌯 Rolls</span>
       <span class="hero-chip">🍝 Chowmein</span>
@@ -1048,7 +1051,7 @@ body {
   <!-- COMBO -->
   <div class="menu-section" id="combo">
     <div class="sec-header">
-      <div class="sec-title"><span>🎁</span>Combo</div>
+      <div class="sec-title"><span>🎁</span>Combo Meals</div>
       <span class="sec-count">Best value</span>
     </div>
     <div class="combo-wrap">
@@ -1179,16 +1182,16 @@ body {
   <div class="footer-top">
     <div class="footer-logo">🍜</div>
     <div>
-      <div class="footer-brand-name">Cotton Collej Restaurant</div>
-      <div class="footer-brand-sub">Indo-Chinese &amp; Street Food<br>Jorhat, Assam</div>
+      <div class="footer-brand-name">Joi Aai Axom</div>
+      <div class="footer-brand-sub">Indo-Chinese &amp; Street Food<br>Guwahati, Assam</div>
     </div>
   </div>
   <div class="footer-grid">
     <div class="fg-block">
       <h4>Location</h4>
-      <p>Near Cotton College</p>
-      <p>Jorhat, Assam 785001</p>
-      <a class="map-link" href="https://maps.google.com/?q=Cotton+College+Jorhat" target="_blank">🗺 Google Maps</a>
+      <p>Near Cotton University</p>
+      <p>Guwahati, Assam 781001</p>
+      <a class="map-link" href="https://maps.google.com/?q=Cotton+College+Guwahati" target="_blank">🗺 Google Maps</a>
     </div>
     <div class="fg-block">
       <h4>Hours</h4>
@@ -1202,11 +1205,10 @@ body {
     </div>
     <div class="fg-block">
       <h4>About</h4>
-      <p>Fresh street-style Chinese &amp; Indo-Chinese, made with love in Jorhat every day.</p>
+      <p>Fresh street-style Chinese &amp; Indo-Chinese, made with love in Guwhati every day.</p>
     </div>
   </div>
   <div class="footer-bottom">
-    <div>© 2024 <span>Cotton Collej Restaurant</span> · All rights reserved</div>
     <div>Designed by <span>SJS &amp; KC</span></div>
   </div>
 </footer>
